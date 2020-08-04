@@ -1,0 +1,627 @@
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+    width: 10px; /* ширина для вертикального скролла */
+    height: 8px; /* высота для горизонтального скролла */
+    background-color: black;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 9em;
+}
+
+/* general */
+
+body {
+    box-sizing: border-box;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.main-services {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.conteiner {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1560px;
+    min-height: 100vh;
+    padding: 25px 0;
+    z-index: 99;
+}
+
+/* header */
+
+/*nav*/
+
+.header-nav {
+    background-color: black;
+    width: 100%;
+    height: 100px;
+    padding-top: 0px;
+    z-index: 5;
+}
+
+.conteiner__nav {
+    margin: 0 auto;
+    max-width: 1300px;
+    height: 100px;
+    padding: 0px 30px;
+    z-index: 99;
+}
+
+.body__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+.logo {
+    max-width: 100%;
+    position: relative;
+    z-index: 110;
+}
+
+.img-logo {
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.call-nav {
+    display: none;
+}
+
+.header__list {
+    display: flex;
+    flex-direction: row;
+}
+
+.header__list > li {
+    list-style: none;
+    padding: 0 25px;
+}
+
+.nav__link {
+    text-decoration: none;
+    font-family: arial;
+    color: white;
+    transition: 0.3s;
+}
+
+.nav__link:hover {
+    border-bottom: white 1px;
+    color: rgb(158, 158, 158);
+    transition: 0.3s;
+}
+
+/*services*/
+
+.services {
+    padding: 80px 0;
+}
+
+.services-conteiner {
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.services-header {
+    max-width: 100%;
+}
+
+.services__header-text {
+    font-family: arial;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    font-size: 80px;
+    color: black;
+}
+
+.services-content {
+    margin-top: 80px;
+}
+
+.services-text {
+    font-family: arial;
+    font-size: 20px;
+}
+
+.under-text {
+    font-family: arial;
+    text-transform: uppercase;
+    font-size: 40px;
+    color: black;
+    padding-left: 40px;
+}
+
+/* map */
+
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    box-shadow: 1px -10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.conteinermap {
+    width: 100%;
+    z-index: 99;
+}
+
+/* map-info */
+
+.map-info {
+    padding: 0 0 80px;
+}
+
+.conteiner-map-info {
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.header-map-info {
+    font-family: arial;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 50px;
+    color: black;
+}
+
+.mapa {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* footer */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    background-color: black;
+}
+
+.conteiner-footer {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1550px;
+    padding: 70px 0;
+    z-index: 99;
+}
+
+.content-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo-text {
+    font-family: "Coda Caption", sans-serif;
+    text-transform: uppercase;
+    font-size: 70px;
+    color: white;
+}
+
+.call {
+    padding-top: 20px;
+}
+
+.adress-text {
+    font-family: arial;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.call-text {
+    font-family: arial;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.end {
+    padding-top: 60px;
+}
+
+.end-text {
+    font-family: arial;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: white;
+}
+
+@media (max-width: 802px) {
+    .footer {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        text-align: center;
+        background-color: black;
+    }
+
+    .content-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    /*burger*/
+
+    .header__burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        z-index: 120;
+    }
+
+    .header__burger span {
+        position: absolute;
+        background-color: #fff;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 9px;
+        z-index: 120;
+        transition: all 0.3s ease 0s;
+    }
+
+    .header__burger:before,
+    .header__burger:after {
+        content: "";
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s;
+    }
+
+    .header__burger:before {
+        top: 0;
+        z-index: 3;
+    }
+
+    .header__burger:after {
+        bottom: 0;
+        z-index: 120;
+    }
+
+    /*======animation burger*/
+
+    .header__burger.active:before {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+
+    .header__burger.active span {
+        transform: scale(0);
+    }
+
+    .header__burger.active:after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+
+    /*nav*/
+    .header-nav {
+        width: 100%;
+        height: 100px;
+        position: fixed;
+        padding-top: 0px;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 5;
+    }
+
+    .header-nav.active {
+        width: 100%;
+        padding-top: 0px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 5;
+    }
+
+    .conteiner__nav {
+        margin: 0 auto;
+        max-width: 1300px;
+        height: 100px;
+        padding: 0px 30px;
+        z-index: 99;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 100;
+        transition: all 0.3s ease 0s;
+    }
+
+    .nav.active {
+        left: 0;
+    }
+
+    .header__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .call-nav {
+        display: block;
+        padding-top: 30px;
+    }
+
+    .header__list > li {
+        list-style: none;
+        padding: 17px 0px;
+    }
+
+    .nav__link {
+        text-decoration: none;
+        font-family: arial;
+        font-size: 28px;
+        color: white;
+        transition: 0.3s;
+    }
+
+    /*================================================================*/
+
+    .services {
+        padding: 180px 0px 80px;
+    }
+
+    .header-map-info {
+        font-family: arial;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 40px;
+        color: black;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        text-align: center;
+        background-color: black;
+        z-index: 4;
+    }
+}
+
+@media (max-width: 425px) {
+    .header-nav {
+        width: 100%;
+        height: 80px;
+        position: fixed;
+        padding-top: 0px;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 5;
+    }
+
+    .conteiner__nav {
+        margin: 0 auto;
+        max-width: 1300px;
+        height: 80px;
+        padding: 0px 30px;
+        z-index: 99;
+    }
+
+    .body__nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+    }
+
+    .logo {
+        max-width: 100%;
+        width: 60px;
+        position: relative;
+        z-index: 110;
+    }
+
+    .services {
+        padding: 160px 0px 80px;
+    }
+
+    .services-content {
+        margin-top: 60px;
+    }
+
+    .services__header-text {
+        font-family: arial;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        font-size: 60px;
+        color: black;
+    }
+
+    .services-text {
+        font-family: arial;
+        font-size: 17px;
+    }
+
+    .under-text {
+        font-family: arial;
+        text-transform: uppercase;
+        font-size: 38px;
+        color: black;
+        padding-left: 40px;
+    }
+
+    .map-info {
+        padding: 0 0 70px;
+    }
+
+    .header-map-info {
+        font-family: arial;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 26px;
+        color: black;
+    }
+
+    .logo-text {
+        font-family: "Coda Caption", sans-serif;
+        text-transform: uppercase;
+        font-size: 60px;
+        color: white;
+    }
+}
+
+@media (max-width: 375px) {
+    .services {
+        padding: 130px 0px 50px;
+    }
+
+    .services__header-text {
+        font-family: arial;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        font-size: 50px;
+        color: black;
+    }
+
+    .services-content {
+        margin-top: 40px;
+    }
+
+    .under-text {
+        font-family: arial;
+        text-transform: uppercase;
+        font-size: 34px;
+        color: black;
+        padding-left: 40px;
+    }
+
+    .map-info {
+        padding: 0 0 60px;
+    }
+
+    .end {
+        margin-bottom: -60px;
+    }
+}
+
+@media (max-width: 320px) {
+    /*nav*/
+
+    .header-nav {
+        width: 100%;
+        height: 70px;
+        position: fixed;
+        padding-top: 0px;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 5;
+    }
+
+    .conteiner__nav {
+        margin: 0 auto;
+        max-width: 1300px;
+        height: 70px;
+        padding: 0px 30px;
+        z-index: 99;
+    }
+
+    .body__nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+    }
+
+    .logo {
+        max-width: 100%;
+        width: 45px;
+        position: relative;
+        z-index: 110;
+    }
+
+    /*services*/
+
+    .services {
+        padding: 120px 0px 40px;
+    }
+
+    .under-text {
+        font-family: arial;
+        text-transform: uppercase;
+        font-size: 30px;
+        color: black;
+        padding-left: 40px;
+    }
+
+    /*info map*/
+
+    .map-info {
+        padding: 0 0 50px;
+    }
+
+    /*footer*/
+
+    .logo-text {
+        font-family: "Coda Caption", sans-serif;
+        text-transform: uppercase;
+        font-size: 54px;
+        color: white;
+        padding-bottom: 30px;
+    }
+
+    .adress-text {
+        font-family: arial;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: white;
+    }
+
+    .call-text {
+        font-family: arial;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: white;
+    }
+}

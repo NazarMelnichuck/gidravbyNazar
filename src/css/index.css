@@ -1,0 +1,3275 @@
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+	width: 10px; /* ширина для вертикального скролла */
+	height: 8px; /* высота для горизонтального скролла */
+	background-color: black;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+	background-color: grey;
+	border-radius: 9em;
+}
+
+/* general */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0px;
+	height: 100%;
+}
+
+.main {
+	min-height: 100vh;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+}
+
+.conteiner {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1560px;
+	min-height: 100vh;
+	padding: 25px 0;
+	z-index: 99;
+}
+
+/* header */
+
+/*nav*/
+
+.header-nav {
+	width: 100%;
+	padding-top: 0px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
+}
+
+.conteiner__nav {
+	margin: 0 auto;
+	max-width: 1300px;
+	padding: 0px 30px;
+	z-index: 99;
+}
+
+.body__nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+}
+
+.logo {
+	max-width: 100%;
+	position: relative;
+	z-index: 110;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+}
+
+.call-nav {
+	display: none;
+}
+
+.header__list {
+	display: flex;
+	flex-direction: row;
+}
+
+.header__list > li {
+	list-style: none;
+	padding: 0 25px;
+}
+
+.nav__link {
+	text-decoration: none;
+	font-family: arial;
+	color: white;
+	transition: 0.3s;
+}
+
+.nav__link:hover {
+	border-bottom: white 1px;
+	color: rgb(158, 158, 158);
+	transition: 0.3s;
+}
+
+/*text*/
+
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+	position: relative;
+
+	background: url("../img/header.jpg") center no-repeat fixed;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.header:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 2;
+}
+
+.header-conteiner {
+	margin: 0 auto;
+	padding: 0px 32px 0px 32px;
+	z-index: 4;
+	text-align: center;
+}
+
+.header-text {
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+.header-name {
+	font-family: arial;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 110px;
+	color: white;
+	opacity: 0;
+	transition: all 1s ease 0s;
+}
+
+.header-name._active {
+	opacity: 1;
+}
+
+.header-suptext {
+	font-family: arial;
+	text-transform: uppercase;
+	font-size: 45px;
+	color: white;
+	transform: translate(0px, 120px);
+	opacity: 0;
+	transition: all 0.8s ease 0s;
+}
+
+.header-suptext._active {
+	transform: translate(0px, 0px);
+	transition: all 0.8s ease 0.1s;
+	opacity: 1;
+}
+
+/* wywe */
+
+.wywe {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 700px;
+	position: relative;
+	text-align: center;
+	background-color: #cecece;
+	padding: 40px 0;
+	overflow: hidden;
+}
+
+.conteiner-wywe {
+	width: 100%;
+	max-width: 1560px;
+	z-index: 99;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+.header-section-1 {
+	font-family: "Noto Sans", sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 70px;
+	color: black;
+	margin-bottom: 100px;
+}
+
+.description-wrapper {
+	margin: 0 auto;
+	padding: 0px 25px 0px 25px;
+}
+
+.description-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 33.333333%;
+}
+
+.description {
+	display: flex;
+	flex-direction: row;
+}
+
+.element-1 {
+	transform: translate(-120%, 0px);
+	opacity: 0;
+}
+
+.element-2 {
+	transform: translate(0px, 70px);
+	opacity: 0;
+}
+
+.element-3 {
+	transform: translate(120%, 0px);
+	opacity: 0;
+}
+
+.element-1._active {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all, 0.8s ease 0s;
+}
+
+.element-2._active {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all, 0.8s ease 0s;
+}
+
+.element-3._active {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all, 0.8s ease 0s;
+}
+
+.description-img {
+	width: 58%;
+}
+
+.desription-text {
+	font-size: 21px;
+	width: 310px;
+	text-align: center;
+	padding: 30px 25px 0px 25px;
+}
+
+/* breakage */
+
+.breakage {
+	display: flex;
+	width: 100%;
+	height: 923px;
+	position: relative;
+	background: url(../img/section.jpg) center no-repeat fixed;
+	-webkit-background-size: cover;
+	background-size: cover;
+	padding: 40px 0;
+}
+
+.breakage:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 2;
+}
+
+.conteiner-breakage {
+	width: 100%;
+	max-width: 1560px;
+	z-index: 99;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+.header-section-2 {
+	font-family: "Noto Sans", sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 70px;
+	color: white;
+	margin: 0 auto 100px;
+}
+
+.breakage-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 20px;
+}
+
+.breakage-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-right: 40px;
+}
+
+.breakage-inner {
+	padding: 30px 0;
+	transform: translate(-120%, 0px);
+	opacity: 0;
+	transition: all 0.6s ease 0s;
+}
+
+.breakage-inner._active {
+	transform: translate(0px, 0px);
+	opacity: 1;
+}
+
+.info-sub-text {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 36px;
+	font-weight: 600;
+	color: white;
+	text-transform: uppercase;
+	padding-bottom: 5px;
+}
+
+.info-sup-text {
+	font-family: arial;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: white;
+}
+
+.massage-container {
+	background-color: #47a747;
+	border-radius: 30px;
+	max-width: 450px;
+}
+
+.massage-text {
+	padding: 40px;
+}
+
+.massage-header {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 34px;
+	font-weight: 600;
+	color: white;
+	padding-bottom: 20px;
+}
+
+.massage-description {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: white;
+}
+
+.massege-buttom {
+	background-color: #389038;
+	padding: 40px;
+	border-radius: 30px;
+}
+
+.massege-btm-header {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 34px;
+	font-weight: 600;
+	text-align: center;
+	color: white;
+	padding-bottom: 20px;
+}
+
+.massege-btm {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 18px;
+	border-radius: 50px;
+	text-align: center;
+	background: none;
+	border: 3px solid;
+	padding: 15px 105px;
+	text-decoration: none;
+	color: #fff;
+	border-color: #fff;
+	width: 100%;
+	transition: 0.3s;
+}
+
+.massege-btm:hover {
+	background-color: #55ad55;
+	transition: 0.3s;
+}
+
+button:active,
+button:focus {
+	outline: none;
+}
+/* markcar */
+
+.markcar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	position: relative;
+	text-align: center;
+	margin: 30px 0;
+}
+
+.conteiner-mycar {
+	width: 100%;
+	max-width: 1560px;
+	z-index: 99;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+.header-section-3 {
+	font-family: "Noto Sans", sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 0px 32px 110px 32px;
+	font-size: 70px;
+	color: black;
+	margin: 0 auto;
+}
+
+.markcar-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.gallery {
+	padding: 0 10px 190px 10px;
+	max-width: 1550px;
+}
+
+.gallery-img {
+	padding: 10px 10px;
+	transform: scale(0);
+	transition: all 0.9s ease 0s;
+}
+
+.gallery-img._active {
+	transform: scale(1);
+}
+
+.text-carmore {
+	font-family: "Noto Sans", sans-serif;
+	text-transform: uppercase;
+	font-weight: 600;
+	text-align: center;
+	font-size: 70px;
+	color: black;
+	margin: 0 auto;
+}
+
+/* map */
+
+.map {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	position: relative;
+	text-align: center;
+	box-shadow: 1px -10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.conteinermap {
+	width: 100%;
+	z-index: 99;
+}
+
+.mapa {
+	width: 100%;
+	min-height: 100vh;
+}
+
+/* footer */
+
+.footer {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	position: relative;
+	text-align: center;
+	background-color: black;
+}
+
+.conteiner-footer {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1550px;
+	padding: 70px 0;
+	z-index: 99;
+}
+
+.content-footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 40px;
+}
+
+.logo-text {
+	font-family: "Coda Caption", sans-serif;
+	text-transform: uppercase;
+	font-size: 70px;
+	color: white;
+}
+
+.call {
+	padding-top: 20px;
+}
+
+.adress-text {
+	font-family: arial;
+	font-size: 22px;
+	text-transform: uppercase;
+	color: white;
+}
+
+.call-text {
+	font-family: arial;
+	font-size: 20px;
+	text-transform: uppercase;
+	color: white;
+}
+
+.end {
+	padding-top: 60px;
+}
+
+.end-text {
+	font-family: arial;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: white;
+}
+
+@media (max-width: 1024px) {
+	.conteiner {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 990px;
+		padding: 25px 0;
+		z-index: 99;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 100px;
+		color: white;
+	}
+
+	.header-suptext {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 50px;
+		color: white;
+	}
+
+	.header-section-1 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 44px;
+		color: black;
+		margin-bottom: 80px;
+	}
+
+	.header-section-2 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 44px;
+		color: white;
+		margin-bottom: 80px;
+	}
+
+	.header-section-3 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 44px;
+		color: black;
+		margin-bottom: 80px;
+	}
+
+	.wywe {
+		display: flex;
+		width: 100%;
+		height: 550px;
+		position: relative;
+		text-align: center;
+		background-color: #cecece;
+	}
+
+	.description-wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.desription-text {
+		font-size: 21px;
+		width: 200px;
+		text-align: center;
+		padding: 30px 0 0 0;
+	}
+
+	.breakage {
+		display: flex;
+		width: 100%;
+		height: 650px;
+		position: relative;
+		background: url(../img/section.jpg) center no-repeat fixed;
+		-webkit-background-size: cover;
+		background-size: cover;
+		padding: 40px 0;
+	}
+
+	.breakage-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+	.info-sub-text {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 30px;
+		font-weight: 600;
+		color: white;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+	}
+
+	.breakage-inner {
+		padding: 20px 0;
+	}
+
+	.massage-container {
+		background-color: #47a747;
+		border-radius: 30px;
+		max-width: 400px;
+	}
+
+	.massage-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 28px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 20px;
+	}
+
+	.massage-text {
+		padding: 20px;
+		width: 400px;
+	}
+
+	.massage-description {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 14px;
+		line-height: 1.5;
+		color: white;
+	}
+
+	.massege-buttom {
+		background-color: #389038;
+		padding: 20px;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 28px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 20px;
+		text-align: center;
+	}
+
+	.massege-btm {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 14px;
+		border-radius: 50px;
+		text-align: center;
+		background: none;
+		border: 3px solid;
+		padding: 15px 100px;
+		text-decoration: none;
+		color: #fff;
+		border-color: #fff;
+		width: 100%;
+		transition: 0.3s;
+	}
+
+	.breakage-content {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 0 20px;
+	}
+
+	.breakage-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		margin-right: 40px;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 60px;
+		color: black;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 864px) {
+	.breakage {
+		display: flex;
+		width: 100%;
+		height: 600px;
+		position: relative;
+		background: url(../img/section.jpg) center no-repeat fixed;
+		-webkit-background-size: cover;
+		background-size: cover;
+		padding: 40px 0;
+	}
+
+	.info-sub-text {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 23px;
+		font-weight: 600;
+		color: white;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+	}
+
+	.info-sup-text {
+		font-family: arial;
+		font-size: 11px;
+		text-transform: uppercase;
+		color: white;
+	}
+
+	.breakage-inner {
+		padding: 15px 0;
+	}
+
+	.massage-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 26px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 15px;
+	}
+
+	.massage-description {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 13px;
+		line-height: 1.5;
+		color: white;
+	}
+
+	.massage-container {
+		background-color: #47a747;
+		border-radius: 30px;
+		width: 320px;
+	}
+
+	.massage-text {
+		padding: 20px;
+		width: 320px;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 26px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 20px;
+		text-align: center;
+	}
+
+	.massege-btm {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 14px;
+		border-radius: 50px;
+		text-align: center;
+		background: none;
+		border: 3px solid;
+		padding: 12px 70px;
+		text-decoration: none;
+		color: #fff;
+		border-color: #fff;
+		width: 100%;
+		transition: 0.3s;
+	}
+}
+
+@media (max-width: 802px) {
+	.footer {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		position: relative;
+		text-align: center;
+		background-color: black;
+	}
+
+	.content-footer {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 40px;
+	}
+
+	.logo-text {
+		font-family: "Coda Caption", sans-serif;
+		text-transform: uppercase;
+		font-size: 70px;
+		color: white;
+		padding-bottom: 40px;
+	}
+}
+
+@media (max-width: 768px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	body.lock {
+		overflow: hidden;
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.conteiner {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 750px;
+		padding: 25px 0;
+		z-index: 3;
+	}
+
+	/*burger*/
+
+	.header__burger {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 20px;
+		z-index: 120;
+	}
+
+	.header__burger span {
+		position: absolute;
+		background-color: #fff;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		top: 9px;
+		z-index: 120;
+		transition: all 0.3s ease 0s;
+	}
+
+	.header__burger:before,
+	.header__burger:after {
+		content: "";
+		background-color: #fff;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		left: 0;
+		transition: all 0.3s ease 0s;
+	}
+
+	.header__burger:before {
+		top: 0;
+		z-index: 3;
+	}
+
+	.header__burger:after {
+		bottom: 0;
+		z-index: 120;
+	}
+
+	/*======animation burger*/
+
+	.header__burger.active:before {
+		transform: rotate(45deg);
+		top: 9px;
+	}
+
+	.header__burger.active span {
+		transform: scale(0);
+	}
+
+	.header__burger.active:after {
+		transform: rotate(-45deg);
+		bottom: 9px;
+	}
+
+	/*nav*/
+	.header-nav {
+		width: 100%;
+		padding-top: 0px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 5;
+	}
+
+	.header-nav.active {
+		width: 100%;
+		padding-top: 0px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 5;
+	}
+
+	.nav {
+		position: fixed;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background-color: black;
+		z-index: 100;
+		transition: all 0.3s ease 0s;
+	}
+
+	.nav.active {
+		left: 0;
+	}
+
+	.header__list {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.call-nav {
+		display: block;
+		padding-top: 30px;
+	}
+
+	.header__list > li {
+		list-style: none;
+		padding: 17px 0px;
+	}
+
+	.nav__link {
+		text-decoration: none;
+		font-family: arial;
+		font-size: 28px;
+		color: white;
+		transition: 0.3s;
+	}
+
+	/*================================================================*/
+
+	.wywe {
+		display: flex;
+		width: 100%;
+		height: 780px;
+		text-align: center;
+		background-color: #cecece;
+	}
+
+	.breakage {
+		display: flex;
+		width: 100%;
+		min-height: 830px;
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+
+	.massage-container {
+		background-color: #47a747;
+		border-radius: 30px;
+		width: 100%;
+	}
+
+	.markcar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		min-height: 712px;
+		text-align: center;
+	}
+
+	.map {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		text-align: center;
+		box-shadow: 1px -10px 20px rgba(0, 0, 0, 0.5);
+	}
+
+	.header-suptext {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 37px;
+		color: white;
+	}
+
+	.header-section-1 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 36px;
+		color: black;
+		margin-bottom: 40px;
+	}
+
+	.header-section-2 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 36px;
+		color: white;
+		margin-bottom: 40px;
+	}
+
+	.header-section-3 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 36px;
+		color: black;
+		margin-bottom: 40px;
+	}
+
+	.description {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.description-item {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		max-width: 33.333333%;
+		padding-bottom: 20px;
+	}
+
+	.description-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.element-1 {
+		transform: translate(0px, 20%);
+		opacity: 0;
+	}
+
+	.element-2 {
+		transform: translate(0px, 20%);
+		opacity: 0;
+	}
+
+	.element-3 {
+		transform: translate(0px, 20%);
+		opacity: 0;
+	}
+
+	.element-1._active {
+		transform: translate(0px, 0px);
+		opacity: 1;
+		transition: all, 0.4s ease 0s;
+	}
+
+	.element-2._active {
+		transform: translate(0px, 0px);
+		opacity: 1;
+		transition: all, 0.4s ease 0s;
+	}
+
+	.element-3._active {
+		transform: translate(0px, 0px);
+		opacity: 1;
+		transition: all, 0.4s ease 0s;
+	}
+
+	.description-img {
+		width: 65%;
+	}
+
+	.desription-text {
+		font-size: 18px;
+		width: 340px;
+		text-align: center;
+		padding: 30px 25px 0px 25px;
+	}
+
+	.breakage-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.breakage-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		padding-left: 0px;
+		margin-right: 0px;
+		margin-bottom: 15px;
+	}
+
+	.breakage-inner {
+		padding: 15px 0;
+		transform: translate(0px, 20%);
+		opacity: 0;
+		transition: all 0.4s ease 0s;
+	}
+
+	.breakage-inner._active {
+		transform: translate(0px, 0px);
+		opacity: 1;
+	}
+
+	.info-sub-text {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 24px;
+		font-weight: 600;
+		color: white;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+	}
+
+	.info-sup-text {
+		font-family: arial;
+		font-size: 11px;
+		text-transform: uppercase;
+		color: white;
+	}
+
+	.massage-text {
+		padding: 20px;
+		width: 94%;
+		margin-right: 0px;
+		margin: 0 auto;
+	}
+
+	.massage-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 28px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 20px;
+	}
+
+	.massage-description {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 14px;
+		line-height: 1.5;
+		color: white;
+	}
+
+	.massege-buttom {
+		background-color: #389038;
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 34px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 10px;
+	}
+
+	.massege-btm {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 18px;
+		border-radius: 50px;
+		text-align: center;
+		background: none;
+		border: 3px solid;
+		padding: 15px 100px;
+		text-decoration: none;
+		color: #fff;
+		border-color: #fff;
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+
+	.gallery {
+		padding: 0 10px 50px 10px;
+		max-width: 1550px;
+	}
+
+	.conteinermap {
+		width: 100%;
+		z-index: 4;
+	}
+
+	.footer {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		position: relative;
+		text-align: center;
+		background-color: black;
+		z-index: 4;
+	}
+}
+
+@media (max-width: 607px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 90px;
+		color: white;
+	}
+
+	.header-suptext {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 30px;
+		color: white;
+	}
+
+	.header-section-1 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 36px;
+		color: black;
+		margin-bottom: 40px;
+	}
+
+	.header-section-2 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 32px 20px 32px;
+		font-size: 34px;
+		color: white;
+		margin: 0 auto;
+	}
+
+	.header-section-3 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 32px 20px 32px;
+		font-size: 34px;
+		color: black;
+		margin: 0 auto;
+	}
+
+	.description-img {
+		width: 115px;
+	}
+}
+
+@media (max-width: 554px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 86px;
+		color: white;
+	}
+
+	.header-suptext {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 26px;
+		color: white;
+	}
+}
+
+@media (max-width: 532px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 78px;
+		color: white;
+	}
+
+	.header-suptext {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 25px;
+		color: white;
+	}
+}
+
+@media (max-width: 488px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 72px;
+		color: white;
+	}
+
+	.header-suptext {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 20px;
+		color: white;
+	}
+
+	.header-section-1 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 18px 20px 18px;
+		font-size: 32px;
+		color: black;
+		margin: 0 auto;
+	}
+
+	.header-section-2 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 18px 20px 18px;
+		font-size: 32px;
+		color: white;
+		margin: 0 auto;
+	}
+
+	.header-section-3 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 18px 20px 18px;
+		font-size: 32px;
+		color: black;
+		margin: 0 auto;
+	}
+
+	.info-sub-text {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 22px;
+		font-weight: 600;
+		color: white;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+	}
+
+	.info-sup-text {
+		font-family: arial;
+		font-size: 10px;
+		text-transform: uppercase;
+		color: white;
+	}
+
+	.massage-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 24px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 20px;
+	}
+
+	.massage-description {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 14px;
+		line-height: 1.5;
+		color: white;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 30px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 10px;
+	}
+
+	.gallery {
+		padding: 0 10px 32px 10px;
+		max-width: 1550px;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 46px;
+		color: black;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 458px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 66px;
+		color: white;
+	}
+
+	.header-suptext {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 18px;
+		color: white;
+	}
+
+	.description-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+@media (max-width: 440px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 64px;
+		color: white;
+	}
+
+	.header-suptext {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 16px;
+		color: white;
+	}
+}
+
+@media (max-width: 425px) {
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.conteiner__nav {
+		margin: 0 auto;
+		max-width: 1300px;
+		padding: 0px 10px;
+		z-index: 99;
+	}
+
+	.img-logo {
+		width: 70px;
+	}
+
+	.conteiner {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 750px;
+		padding: 25px 0;
+		z-index: 3;
+	}
+
+	.wywe {
+		display: flex;
+		width: 100%;
+		height: 670px;
+		text-align: center;
+		background-color: #cecece;
+	}
+
+	.breakage {
+		display: flex;
+		width: 100%;
+		min-height: 700px;
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+
+	.massage-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 22px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 20px;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 25px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 10px;
+	}
+
+	.markcar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		min-height: 507px;
+		text-align: center;
+		margin: 40px 0;
+	}
+
+	.map {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		text-align: center;
+		box-shadow: 1px -10px 20px rgba(0, 0, 0, 0.5);
+	}
+
+	.header-section-1 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 26px;
+		color: black;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	.header-section-2 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 26px;
+		color: white;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	.header-section-3 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 26px;
+		color: black;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	.description {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.description-img {
+		width: 81%;
+	}
+
+	.desription-text {
+		font-size: 18px;
+		width: 340px;
+		text-align: center;
+		padding: 25px 25px 0px 25px;
+	}
+
+	.breakage-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
+		align-items: start;
+	}
+
+	.breakage-inner {
+		padding: 10px 0;
+	}
+
+	.massage-text {
+		padding: 20px;
+		width: 88%;
+		margin-right: 0px;
+		margin: 0 auto;
+	}
+
+	.info-sub-text {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 19px;
+		font-weight: 600;
+		color: white;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+	}
+
+	.info-sup-text {
+		font-family: arial;
+		font-size: 10px;
+		text-transform: uppercase;
+		color: white;
+	}
+
+	.massege-btm {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 16px;
+		border-radius: 50px;
+		text-align: center;
+		background: none;
+		border: 3px solid;
+		padding: 10px 75px;
+		text-decoration: none;
+		color: #fff;
+		border-color: #fff;
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 26px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 10px;
+	}
+
+	.gallery-img {
+		padding: 10px 10px;
+		width: 57px;
+	}
+}
+
+@media (max-width: 712px) and (max-height: 490px) and (orientation: landscape) {
+	.header__list > li {
+		list-style: none;
+		padding: 10px 0px;
+	}
+
+	.header__list {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		top: 20px;
+	}
+}
+
+@media (max-width: 480px) and (max-height: 320px) and (orientation: landscape) {
+	.header__list > li {
+		list-style: none;
+		padding: 5px 0px;
+	}
+
+	.header__list {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		top: 20px;
+	}
+
+	.call-nav {
+		display: block;
+		padding-top: 10px;
+	}
+
+	.img-logo {
+		border-style: none;
+		width: 50px;
+	}
+}
+
+@media (max-width: 480px) and (max-height: 320px) and (orientation: landscape) {
+	.header__list > li {
+		list-style: none;
+		padding: 5px 0px;
+	}
+
+	.header__list {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		top: 20px;
+	}
+
+	.call-nav {
+		display: block;
+		padding-top: 10px;
+	}
+
+	.img-logo {
+		border-style: none;
+		width: 50px;
+	}
+}
+
+@media (max-width: 411px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 62px;
+		color: white;
+	}
+
+	.header-suptext {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 16px;
+		color: white;
+	}
+}
+
+@media (max-width: 408px) {
+	.breakage {
+		display: flex;
+		width: 100%;
+		min-height: 720px;
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+
+	.massage-description {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 13px;
+		line-height: 1.5;
+	}
+
+	.breakage-inner {
+		padding: 9px 0;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 24px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 10px;
+	}
+
+	.massage-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 22px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 15px;
+	}
+
+	.massege-btm {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 15px;
+		border-radius: 50px;
+		text-align: center;
+		background: none;
+		border: 3px solid;
+		padding: 10px 60px;
+		text-decoration: none;
+		color: #fff;
+		border-color: #fff;
+		width: 100%;
+		margin-top: 5px;
+		margin-bottom: 0px;
+	}
+}
+
+@media (max-width: 399px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 60px;
+		color: white;
+	}
+}
+
+@media (max-width: 390px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-conteiner {
+		margin: 0 auto;
+		z-index: 4;
+		text-align: center;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 56px;
+		color: white;
+	}
+
+	.header-suptext {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 15px;
+		color: white;
+	}
+
+	.desription-text {
+		font-size: 18px;
+		width: 340px;
+		text-align: center;
+		padding: 25px 0px 0px 0px;
+	}
+}
+
+@media (max-width: 376px) {
+	.header-section-2 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 3px 20px 3px;
+		font-size: 26px;
+		color: white;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 375px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.img-logo {
+		width: 60px;
+	}
+
+	.conteiner {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 750px;
+		padding: 25px 0;
+		z-index: 3;
+	}
+
+	.wywe {
+		display: flex;
+		width: 100%;
+		height: 600px;
+		text-align: center;
+		background-color: #cecece;
+		padding: 20px 0;
+	}
+
+	.breakage {
+		display: flex;
+		width: 100%;
+		min-height: 700px;
+		-webkit-background-size: cover;
+		background-size: cover;
+		padding: 20px 0;
+	}
+
+	.breakage-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
+		align-items: start;
+		padding: 0 0px;
+	}
+
+	.markcar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		min-height: 450px;
+		text-align: center;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 40px;
+		color: black;
+		margin: 0 auto;
+	}
+
+	.map {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		text-align: center;
+		box-shadow: 1px -10px 20px rgba(0, 0, 0, 0.5);
+	}
+
+	.description-img {
+		width: 80%;
+	}
+
+	.header-section-1 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 0 20px 0px;
+		font-size: 24px;
+		color: black;
+		margin: 0 auto;
+	}
+
+	.header-section-2 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 0 20px 0px;
+		font-size: 24px;
+		color: white;
+		margin: 0 auto;
+	}
+
+	.header-section-3 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 0 20px 0px;
+		font-size: 24px;
+		color: black;
+		margin: 0 auto;
+	}
+
+	.breakage-inner {
+		padding: 10px 0;
+	}
+
+	.info-sup-text {
+		font-family: arial;
+		font-size: 10px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: white;
+	}
+
+	.massage-text {
+		padding: 20px;
+		width: 94%;
+		margin-right: 0px;
+		margin: 0 auto;
+	}
+
+	.massage-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 23px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 20px;
+	}
+
+	.massage-description {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 14px;
+		line-height: 1.5;
+		color: white;
+	}
+
+	.massege-btm {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 14px;
+		border-radius: 50px;
+		text-align: center;
+		background: none;
+		border: 3px solid;
+		padding: 10px 55px;
+		text-decoration: none;
+		color: #fff;
+		border-color: #fff;
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+
+	.gallery-img {
+		padding: 10px 10px;
+		width: 55px;
+	}
+
+	.content-footer {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 40px;
+		margin-top: 0px;
+		margin-bottom: 35px;
+	}
+
+	.logo-text {
+		font-family: "Coda Caption", sans-serif;
+		text-transform: uppercase;
+		font-size: 60px;
+		color: white;
+		padding-bottom: 30px;
+	}
+
+	.end {
+		margin-bottom: -60px;
+	}
+}
+
+@media (max-width: 370px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 25px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 10px;
+	}
+
+	.gallery-img {
+		padding: 10px 10px;
+		width: 46px;
+	}
+}
+
+@media (max-width: 367px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 54px;
+		color: white;
+	}
+}
+
+@media (max-width: 359px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 24px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 5px;
+	}
+
+	.massage-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 22px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 10px;
+	}
+
+	.massage-text {
+		padding: 20px;
+		width: 92%;
+		margin-right: 0px;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 356px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 53px;
+		color: white;
+	}
+}
+
+@media (max-width: 351px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 52px;
+		color: white;
+	}
+}
+
+@media (max-width: 348px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.info-sub-text {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 17px;
+		font-weight: 600;
+		color: white;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+	}
+
+	.massege-btm {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 14px;
+		border-radius: 50px;
+		text-align: center;
+		background: none;
+		border: 3px solid;
+		padding: 15px 66px;
+		text-decoration: none;
+		color: #fff;
+		border-color: #fff;
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 23px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 10px;
+	}
+}
+
+@media (max-width: 345px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 51px;
+		color: white;
+	}
+}
+
+@media (max-width: 341px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.desription-text {
+		font-size: 18px;
+		width: 270px;
+		text-align: center;
+		padding: 25px 0px 0px 0px;
+	}
+}
+
+@media (max-width: 339px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-conteiner {
+		margin: 0 auto;
+		padding: 0px;
+		z-index: 4;
+		text-align: center;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 49px;
+		color: white;
+	}
+}
+
+@media (max-width: 339px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-conteiner {
+		margin: 0 auto;
+		padding: 0px;
+		z-index: 4;
+		text-align: center;
+	}
+
+	.header-name {
+		font-family: arial;
+		text-transform: uppercase;
+		font-size: 49px;
+		color: white;
+	}
+}
+
+@media (max-width: 333px) {
+	.massege-btm {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 14px;
+		border-radius: 50px;
+		text-align: center;
+		background: none;
+		border: 3px solid;
+		padding: 15px 62px;
+		text-decoration: none;
+		color: #fff;
+		border-color: #fff;
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 22px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 10px;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 33px;
+		color: black;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 333px) {
+	.massege-btm {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 14px;
+		border-radius: 50px;
+		text-align: center;
+		background: none;
+		border: 3px solid;
+		padding: 15px 54px;
+		text-decoration: none;
+		color: #fff;
+		border-color: #fff;
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 19px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 10px;
+	}
+}
+
+/*Iphone 4*/
+
+@media (max-width: 320px) {
+	body {
+		box-sizing: border-box;
+		margin: 0px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.body__nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 10px;
+	}
+
+	.img-logo {
+		width: 55px;
+	}
+
+	.conteiner {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 750px;
+		padding: 25px 0;
+		z-index: 3;
+	}
+
+	.header-conteiner {
+		margin: 0 auto;
+		padding: 0px;
+		z-index: 4;
+		text-align: center;
+	}
+
+	.wywe {
+		display: flex;
+		width: 100%;
+		height: 570px;
+		position: relative;
+		text-align: center;
+		background-color: #cecece;
+	}
+
+	.description {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.desription-text {
+		font-size: 18px;
+		width: 270px;
+		text-align: center;
+		padding: 20px 0px 0px 0px;
+	}
+
+	.breakage {
+		display: flex;
+		width: 100%;
+		min-height: 670px;
+		position: relative;
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+
+	.breakage-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		padding-left: 0px;
+		margin-right: 0px;
+		margin-bottom: 10px;
+	}
+
+	.markcar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		min-height: 465px;
+		position: relative;
+		text-align: center;
+		margin: 20px 0;
+	}
+
+	.header-section-1 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 0 20px 0px;
+		font-size: 22px;
+		color: black;
+		margin: 0 auto;
+	}
+
+	.header-section-2 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 0 20px 0px;
+		font-size: 22px;
+		color: white;
+		margin: 0 auto;
+	}
+
+	.header-section-3 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 0 20px 0px;
+		font-size: 22px;
+		color: black;
+		margin: 0 auto;
+	}
+
+	.breakage-inner {
+		padding: 7px 0;
+	}
+
+	.massage-container {
+		background-color: #47a747;
+		border-radius: 30px;
+		margin-top: 10px;
+	}
+
+	.breakage-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
+		align-items: start;
+		padding-bottom: 60px;
+	}
+
+	.massage-text {
+		padding: 16px;
+		padding-right: 16px;
+		width: 92%;
+		margin-right: 0px;
+		margin: 0 auto;
+	}
+
+	.massege-btm {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 14px;
+		border-radius: 50px;
+		text-align: center;
+		background: none;
+		border: 3px solid;
+		padding: 10px 50px;
+		text-decoration: none;
+		color: #fff;
+		border-color: #fff;
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 40px;
+		color: black;
+		margin: 0 auto;
+	}
+
+	.logo-text {
+		font-family: "Coda Caption", sans-serif;
+		text-transform: uppercase;
+		font-size: 54px;
+		color: white;
+		padding-bottom: 30px;
+	}
+
+	.adress-text {
+		font-family: arial;
+		font-size: 20px;
+		text-transform: uppercase;
+		color: white;
+	}
+
+	.call-text {
+		font-family: arial;
+		font-size: 18px;
+		text-transform: uppercase;
+		color: white;
+	}
+}
+
+@media (max-height: 680px) {
+	.gallery-img {
+		padding: 10px 10px;
+		width: 39px;
+	}
+
+	.gallery {
+		padding: 0 10px 20px 10px;
+		max-width: 1550px;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 36px;
+		color: black;
+		margin: 0 auto;
+	}
+}
+
+@media (max-height: 620px) {
+	.massage-container {
+		background-color: #47a747;
+		margin-top: 10px;
+	}
+
+	.massage-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 20px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 10px;
+	}
+
+	.massage-text {
+		padding: 12px;
+		padding-right: 16px;
+		width: 92%;
+		margin-right: 0px;
+		margin: 0 auto;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 23px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 0px;
+	}
+
+	.massege-buttom {
+		background-color: #389038;
+		padding: 12px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.massege-btm {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 14px;
+		border-radius: 50px;
+		text-align: center;
+		background: none;
+		border: 3px solid;
+		padding: 15px 70px;
+		text-decoration: none;
+		color: #fff;
+		border-color: #fff;
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+}
+
+@media (max-height: 660px) {
+	.desription-text {
+		font-size: 18px;
+		width: 240px;
+		text-align: center;
+		padding: 10px 25px 0px 25px;
+	}
+
+	.description-img {
+		width: 80%;
+	}
+}
+
+@media (max-height: 640px) {
+	.gallery-img {
+		padding: 10px 10px;
+		width: 37px;
+	}
+}
+
+@media (max-height: 600px) {
+	.gallery-img {
+		padding: 10px 10px;
+		width: 37px;
+	}
+
+	.gallery {
+		padding: 0 0px 100px 0px;
+		max-width: 1600px;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 33px;
+		color: black;
+		margin: 0 auto;
+	}
+}
+
+@media (max-height: 580px) {
+	.gallery-img {
+		padding: 10px 10px;
+		width: 37px;
+	}
+
+	.gallery {
+		padding: 0 0px 80px 0px;
+		max-width: 1600px;
+		width: 100%;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 33px;
+		color: black;
+		margin: 0 auto;
+	}
+}
+
+@media (max-height: 570px) {
+	.breakage-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
+		align-items: start;
+		padding-bottom: 50px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.breakage {
+		display: flex;
+		width: 100%;
+		min-height: 570px;
+		position: relative;
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+
+	.massage-description {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 12px;
+		line-height: 1.5;
+		color: white;
+	}
+
+	.massege-btm-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 21px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 0px;
+	}
+
+	.massage-header {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 18px;
+		font-weight: 600;
+		color: white;
+		padding-bottom: 10px;
+	}
+
+	.breakage-inner {
+		padding: 5px 0;
+	}
+
+	.massege-btm {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 13px;
+		border-radius: 50px;
+		text-align: center;
+		background: none;
+		border: 3px solid;
+		padding: 12px 70px;
+		text-decoration: none;
+		color: #fff;
+		border-color: #fff;
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+
+	.gallery {
+		padding: 0 0px 60px 0px;
+		max-width: 1600px;
+		width: 100%;
+	}
+}
+
+@media (max-height: 585px) {
+	.description {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 40px;
+	}
+
+	.description-item {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		max-width: 33.333333%;
+		padding-bottom: 10px;
+	}
+
+	.desription-text {
+		font-size: 17px;
+		width: 240px;
+		text-align: center;
+		padding: 10px 25px 0px 15px;
+	}
+
+	.description-img {
+		width: 70%;
+	}
+}
+
+@media (max-height: 568px) {
+	.wywe {
+		display: flex;
+		width: 100%;
+		min-height: 568px;
+		position: relative;
+		text-align: center;
+		background-color: #cecece;
+	}
+
+	.breakage {
+		display: flex;
+		width: 100%;
+		min-height: 568px;
+		position: relative;
+
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+
+	.markcar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		min-height: 568px;
+		position: relative;
+		text-align: center;
+	}
+
+	.header-section-3 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 0 50px 0px;
+		font-size: 22px;
+		color: black;
+		margin: 0 auto;
+	}
+
+	.description {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 50px;
+	}
+
+	.desription-text {
+		font-size: 18px;
+		width: 240px;
+		text-align: center;
+		padding: 10px 25px 0px 25px;
+	}
+
+	.description-img {
+		width: 75%;
+	}
+
+	.breakage-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
+		align-items: start;
+		padding-bottom: 25px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.breakage-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		padding-left: 0px;
+	}
+
+	.breakage-inner {
+		padding: 10px 0;
+	}
+
+	.info-sup-text {
+		font-family: arial;
+		font-size: 10px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: white;
+	}
+
+	.info-sub-text {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 17px;
+		font-weight: 600;
+		color: white;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+	}
+
+	.massage-description {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 12px;
+		line-height: 1.3;
+		color: white;
+	}
+
+	.gallery-img {
+		padding: 6px 6px;
+		width: 40px;
+	}
+
+	.gallery {
+		padding: 0 0px 50px 0px;
+		max-width: 1600px;
+		width: 100%;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 27px;
+		color: black;
+		margin: 0 auto;
+	}
+}
+
+@media (max-height: 550px) {
+	.gallery-img {
+		padding: 10px 10px;
+		width: 36px;
+	}
+
+	.gallery {
+		padding: 0 0px 40px 0px;
+		max-width: 1600px;
+		width: 100%;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 30px;
+		color: black;
+		margin: 0 auto;
+	}
+}
+
+@media (max-height: 530px) {
+	.info-sub-text {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 15px;
+		font-weight: 600;
+		color: white;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+	}
+
+	.breakage-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
+		align-items: start;
+		padding-bottom: 30px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.massage-description {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 12px;
+		line-height: 1.3;
+		color: white;
+	}
+
+	.gallery-img {
+		padding: 10px 10px;
+		width: 35px;
+	}
+
+	.gallery {
+		padding: 0 0px 30px 0px;
+		max-width: 1600px;
+		width: 100%;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 28px;
+		color: black;
+		margin: 0 auto;
+	}
+}
+
+@media (max-height: 500px) {
+	.header-section-3 {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0px 0 50px 0px;
+		font-size: 22px;
+		color: black;
+		margin: 0 auto;
+	}
+
+	.gallery-img {
+		padding: 6px 6px;
+		width: 35px;
+	}
+
+	.gallery {
+		padding: 0 0px 30px 0px;
+		max-width: 1600px;
+		width: 100%;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 28px;
+		color: black;
+		margin: 0 auto;
+	}
+}
+
+@media (max-height: 480px) {
+	.header__list > li {
+		list-style: none;
+		padding: 10px 0px;
+	}
+
+	.wywe {
+		display: flex;
+		width: 100%;
+		min-height: 480px;
+		position: relative;
+		text-align: center;
+		background-color: #cecece;
+	}
+
+	.breakage {
+		display: flex;
+		width: 100%;
+		min-height: 480px;
+		position: relative;
+
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+
+	.markcar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		min-height: 480px;
+		position: relative;
+		text-align: center;
+	}
+
+	.description {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 50px;
+	}
+
+	.desription-text {
+		font-size: 16px;
+		width: 240px;
+		text-align: center;
+		padding: 10px 25px 0px 25px;
+	}
+
+	.description-img {
+		width: 65%;
+	}
+
+	.breakage-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
+		align-items: start;
+		padding-bottom: 25px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.breakage-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		padding-left: 0px;
+	}
+
+	.breakage-inner {
+		padding: 5px 0;
+	}
+
+	.info-sup-text {
+		font-family: arial;
+		font-size: 10px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: white;
+	}
+
+	.info-sub-text {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 15px;
+		font-weight: 600;
+		color: white;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+	}
+
+	.massage-description {
+		font-family: "Noto Sans", sans-serif;
+		font-size: 12px;
+		line-height: 1.3;
+		color: white;
+	}
+
+	.gallery-img {
+		padding: 6px 6px;
+		width: 34px;
+	}
+
+	.gallery {
+		padding: 0 0px 30px 0px;
+		max-width: 1600px;
+		width: 100%;
+	}
+
+	.text-carmore {
+		font-family: "Noto Sans", sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		text-align: center;
+		font-size: 27px;
+		color: black;
+		margin: 0 auto;
+	}
+}
+
+@media (max-height: 430px) {
+	.header__list > li {
+		list-style: none;
+		padding: 8px 0px;
+	}
+
+	.header__list {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		top: 40px;
+	}
+}
+
+@media (max-height: 430px) {
+	.header__list li {
+		list-style: none;
+		padding: 7px 0px;
+	}
+
+	.header__list {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		top: 40px;
+	}
+
+	.nav__link {
+		text-decoration: none;
+		font-family: arial;
+		font-size: 24px;
+		color: white;
+		transition: 0.3s;
+	}
+
+	.call-nav {
+		display: block;
+		padding-top: 10px;
+	}
+}

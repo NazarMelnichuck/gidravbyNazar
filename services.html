@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <title>Про нас</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="src/css/services.css">
+    <link rel="stylesheet" href="src/css/popup.css">
+</head>
+
+<body>
+
+    <!-- header -->
+
+    <section class="header-nav">
+
+        <div class="conteiner__nav">
+            <div class="body__nav">
+                <a href="index.html" class="logo">
+                    <img class="img-logo" src="src/img/logo.png" alt="">
+                </a>
+                <div class="header__burger">
+                    <span></span>
+                </div>
+                <nav class="nav">
+                    <ul class="header__list">
+                        <li>
+                            <a href="index.html" class="nav__link">Головна</a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="nav__link">Про нас</a>
+                        </li>
+                        <li>
+                            <a href="services.html" class="nav__link">Послуги</a>
+                        </li>
+                        <li>
+                            <a href="contacts.html" class="nav__link">Контакти</a>
+                        </li>
+                        <li>
+                            <a href="blog.html" class="nav__link">Блог</a>
+                        </li>
+                        <div class="call-nav">
+                            <div class="call-text">38 0XX XXX XX XX </div>
+                            <div class="call-text">38 0XX XXX XX XX </div>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- main -->
+
+    <main class="main-services">
+
+        <!-- section 1 -->
+
+        <section class="services">
+
+            <div class="services-conteiner">
+
+                <div class="services-header">
+                    <div class="services__header-text">Послуги</div>
+                </div>
+
+                <div class="services-content">
+                    <div class="services-text">
+                        <ul>
+                            <li>Діагностика несправної кермової рейки</li>
+                            <li>Діагностика несправності ГУР</li>
+                            <li>Діагностика ходової частини автомобіля</li>
+                            <li>Продажа встановленнях ГУР і кермових рейок</li>
+                            <li>Шиномонтаж</li>
+                            <li>Прибирання авто</li>
+                        </ul>
+                        <div class="under-text"> Та інше...</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- section 2 -->
+        <section class="map-info">
+
+            <div class="conteiner-map-info">
+
+                <div class="header-map-info">Де ви нас можете знайти:</div>
+
+            </div>
+
+        </section>
+
+        <!-- section 3 -->
+
+        <section class="map">
+
+            <div class="conteinermap">
+
+                <div class="div-map">
+                    <iframe class="mapa"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2649712.444815578!2d36.11300614596335!3d48.84328762974793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDU2JzAzLjQiTiAzNcKwMzknMDkuMiJF!5e0!3m2!1suk!2sua!4v1596490304348!5m2!1suk!2sua"
+                        width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""
+                        aria-hidden="false" tabindex="0">
+                    </iframe>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- footer -->
+
+    <footer class="footer">
+
+        <div class="conteiner-footer">
+
+            <div class="content-footer">
+
+                <div class="logo-text">gidravlik</div>
+                <div class="adress">
+                    <div class="adress-text">м. Луцьк вул. ****</div>
+                    <div class="call">
+                        <div class="call-text">38 0XX XXX XX XX </div>
+                        <div class="call-text">38 0XX XXX XX XX </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="end">
+                <div class="end-text">© 2020 Сервіс по ремонту рулевих рейов в Луцьку</div>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <div class='modal' id='modal1'>
+        <div class='content'>
+            <button class='btn close-modal' data-modal="#modal1" href="#"><b>X</b></button>
+            <h1 class='title'>Залишити заявку</h1>
+
+            <div class="popup-info">
+                Заповнивши форму, ми передзвонимо та з'ясуємо зручний час для Вас, також ми можемо відповісти на всі
+                ваші запитання
+            </div>
+
+            <form class="popup-form" action="mail.php" method="POST">
+
+                <div class="form-group">
+                    <label for="">Ім'я:</label> </br>
+                    <input type="text" class="form-control" id="" name="user_name" placeholder="Наприклад, Іван"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Номер телефона:</label> </br>
+                    <input type="text" class="form-control" id="" name="user_phone" placeholder="099 999 99 99"
+                        pattern="[0-9]{3}[ -][0-9]{3}[ -][0-9]{2}[ -][0-9]{2}" maxlength="number" required>
+                </div>
+
+                <small>Перевірте правильність написання номеру телефона, щоб ми змогли з вами зв'язатися!</small>
+
+                <div class="form-group search-input">
+                    <label for="">Характеристика автомобіля:</label> </br>
+                    <input type="text" class="form-control" id="" name="user_car" placeholder="BMW X5" required>
+                </div>
+
+                <button type="submit" class="button-send">Відправити</button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script type="text/javascript" src="src/js//index.js"></script>
+    <script type="text/javascript" src="src/js/burger.js"></script>
+
+</body>
+
+</html>
